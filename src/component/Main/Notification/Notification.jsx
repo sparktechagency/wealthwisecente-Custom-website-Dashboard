@@ -96,10 +96,10 @@ const Notification = () => {
         {paginatedNotifications?.map((item) => (
           <div
             key={item.id}
-            className="border border-[#344f47] hover:bg-[#344f473b] cursor-pointer rounded-md p-4 flex items-center space-x-4"
+            className="border border-[#000000] hover:bg-[#0000003b] cursor-pointer rounded-md p-4 flex items-center space-x-4"
           >
-            <div className="text-[#344f47] border border-[#344f47] rounded-full p-2">
-              <span className="bg-[#344f47] p-1.5 rounded-full absolute ml-4 z-20"></span>
+            <div className="text-[#000000] border border-[#000000] rounded-full p-2">
+              <span className="bg-[#000000] p-1.5 rounded-full absolute ml-4 z-20"></span>
               <IoMdNotificationsOutline size={30} className="relative" />
             </div>
             <div>

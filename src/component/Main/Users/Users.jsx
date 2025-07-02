@@ -97,20 +97,20 @@ const Users = () => {
         <Form layout="inline" className="flex space-x-4">
           <Item name="date">
             <DatePicker
-              className="rounded-md border border-[#344f47]"
+              className="rounded-md border border-[#000000]"
               onChange={(date) => setSelectedDate(date)}
               placeholder="Select Date"
             />
           </Item>
           <Item name="username">
             <Input
-              className="rounded-md w-[70%] md:w-full border border-[#344f47]"
+              className="rounded-md w-[70%] md:w-full border border-[#000000]"
               placeholder="User Name"
               onChange={(e) => setSearchText(e.target.value)}
             />
           </Item>
           <Item>
-            <button className="size-8 rounded-full flex justify-center items-center bg-[#344f47] text-white">
+            <button className="size-8 rounded-full flex justify-center items-center bg-[#000000] text-white">
               <IoIosSearch className="size-5" />
             </button>
           </Item>
@@ -122,8 +122,8 @@ const Users = () => {
           theme={{
             components: {
               Table: {
-                headerBg: "#344f47",
-                headerColor: "#fff",
+                headerBg: "#000000",
+                headerColor: "#dbb56a",
                 headerBorderRadius: 5,
               },
             },
@@ -146,9 +146,9 @@ const Users = () => {
 
         {/* User Details Section */}
         <div className={`${detailsVisible ? "block" : "hidden"} duration-500`}>
-          <div className=" w-full md:w-2/4 mx-auto border-2 border-[#344f47] p-2 rounded-lg relative">
+          <div className=" w-full md:w-2/4 mx-auto border-2 border-[#000000] p-2 rounded-lg relative">
 
-            <div onClick={() => setDetailsVisible(false)} className="absolute bg-[#344f47] text-white p-3 rounded-full -top-5 -left-5 cursor-pointer" >
+            <div onClick={() => setDetailsVisible(false)} className="absolute bg-[#000000] text-white p-3 rounded-full -top-5 -left-5 cursor-pointer" >
               <FaArrowLeft className="text-2xl" />
             </div>
 

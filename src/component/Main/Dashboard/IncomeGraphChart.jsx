@@ -1,52 +1,87 @@
+'use client';
+
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Card } from 'antd';  // Import Ant Design's Card component
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+// import { IoIosMenu } from 'react-icons/io5';
+
+// Registering the necessary components for Chart.js
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const IncomeGraphChart = () => {
-  // Sample Data for Income and Expenses over the months
-  const data = [
-    { month: 'Jan', income: 4, expenses: 2 },
-    { month: 'Feb', income: 9, expenses: 6 },
-    { month: 'Mar', income: 9.1, expenses: 8 },
-    { month: 'Apr', income: 3, expenses: 6.5 },
-    { month: 'May', income: 12, expenses: 7 },
-    { month: 'Jun', income: 12.9, expenses: 4 },
-    { month: 'Jul', income: 6, expenses: 8 },
-    { month: 'Aug', income: 7, expenses: 5 },
-    { month: 'Sep', income: 8, expenses: 6 },
-    { month: 'Oct', income: 10, expenses: 7.5 },
-    { month: 'Nov', income: 11, expenses: 8 },
-    { month: 'Dec', income: 12, expenses: 9 },
-  ];
+  // Sample data for monthly income analysis
+  const data = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], // months
+    datasets: [
+      {
+        label: 'Income',
+        data: [3000, 2000, 2500, 3500, 4000, 7000, 5500, 6000, 4500, 4700, 5200, 5000], // income data for each month
+        backgroundColor: '#F2E0C9', // Light beige bars
+        borderColor: '#dcb66b',
+        borderWidth: 1,
+        borderRadius: 5, // Rounded bars
+        hoverBackgroundColor: 'linear-gradient(to top, #12697b, #fff)', // Hover color
+        hoverBorderColor: '#000', // Hover border color
+        hoverBorderWidth: 2,
+      },
+    ],
+  };
+
+  // Options for the chart
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      tooltip: {
+        callbacks: {
+          // Customizing the tooltip to show the value on hover
+          title: (tooltipItems) => {
+            return 'Income: $' + tooltipItems[0].raw;
+          },
+        },
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: 'rgba(255, 255, 255, 0.1)', // Subtle grid lines
+        },
+        ticks: {
+          color: '#fff', // White ticks
+        },
+      },
+      x: {
+        grid: {
+          display: false, // Remove x-axis grid lines
+        },
+        ticks: {
+          color: '#fff', // White ticks for months
+        },
+      },
+    },
+  };
 
   return (
-    <section className="w-full col-span-full md:col-span-4 bg-white rounded-lg border-2 border-[#344f47] shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
-      <ResponsiveContainer width="100%" height={500} className="pr-5 pt-5">
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip contentStyle={{ backgroundColor: '#344f47c5', color: 'white', borderRadius: '10px' }} />
-          <Legend />
-
-          {/* Line for Income */}
-          <Line
-            type="monotone"
-            dataKey="income"
-            stroke="#ccc49d" // Green color for income
-            activeDot={{ r: 8 }}
-            strokeWidth={4}
-          />
-          {/* Line for Expenses */}
-          <Line
-            type="monotone"
-            dataKey="expenses"
-            stroke="#344f47" // Dark green color for expenses
-            activeDot={{ r: 8 }}
-            strokeWidth={4}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </section>
+    <div className="border rounded-lg  text-white">
+      <Card
+        title={<span style={{ fontSize: '24px', fontWeight: 'bold' }}>XYZ Analyses</span>}
+        bordered={false}
+        style={{ width: '100%', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+        extra={
+          <div className="flex items-center gap-2 cursor-pointer">
+            {/* <IoIosMenu className="text-xl text-gray-500" /> */}
+            {/* <span className="text-gray-500">Menu</span> */}
+          </div>
+        }
+      >
+        <div className="relative w-full h-80">
+          {/* Render the Bar Chart inside Ant Design's Card component */}
+          <Bar data={data} options={options} />
+        </div>
+      </Card>
+    </div>
   );
 };
 

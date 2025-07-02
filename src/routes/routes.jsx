@@ -59,6 +59,11 @@ import Milestone from "../page/Milestone/Milestone";
 import MilestoneDetails from "../page/Milestone/MilestoneDetails";
 import BabyCuseSounddetails from "../page/BabyCuse/BabyCuseSounddetails";
 import BabyCuseSouthingdetails from "../page/BabyCuse/BabyCuseSouthingdetails";
+import ApplicationUserList from "../page/ApplicationUserList/ApplicationUserList";
+import Company from "../page/Company/Company";
+import CompanyAdd from "../page/Company/CompanyAdd";
+import CompanyEdit from "../page/Company/CompanyEdit";
+import CompanyDetails from "../page/Company/CompanyDetails";
 
 
 
@@ -88,13 +93,29 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "baby-cuse",
-        element: <BabyCuse />,
+        path: "application-user-list",
+        element: <ApplicationUserList />,
+      },
+
+      {
+        path: "company",
+        element: <Company />,
       },
       {
-        path: "baby-cuse/baby-case-details",
-        element: <BabyCusedetails />,
+        path: "company/details/:id",
+        element: <CompanyDetails />,
       },
+      {
+        path: "company/add-company",
+        element: <CompanyAdd />,
+      },
+      {
+        path: "/company/edit/:id",
+        element: <CompanyEdit />,
+      },
+
+
+
       {
         path: "baby-cuse/sound-details",
         element: <BabyCuseSounddetails />,
@@ -118,7 +139,7 @@ const router = createBrowserRouter([
 
 
 
-    
+
 
 
       {

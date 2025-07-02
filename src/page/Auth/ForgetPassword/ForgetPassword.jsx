@@ -43,7 +43,7 @@ const ForgetPassword = () => {
         <div className="">
 
           <div className="mb-5 space-y-5">
-            <img src={logoimage} className="w-[100px] mx-auto mb-5" alt="" />
+            <img src={logoimage} className="w-[100px] rounded-full mx-auto mb-5" alt="" />
             <h1 className="font-semibold text-2xl flex items-center gap-2">
               <Link to="/auth/login">
                 <IoIosArrowBack />
@@ -86,7 +86,7 @@ const ForgetPassword = () => {
                 loading={isLoading}
                 border
                 type="submit"
-                className="w-full bg-[#344f47] text-xl font-semibold text-white rounded-md py-2"
+                className="w-full bg-[#000000] text-xl font-semibold text-white rounded-md py-2"
               >
                 Send Verification Code
               </button>

@@ -56,12 +56,12 @@ const Otp = () => {
   };
   return (
     <div className="w-full bg-[#fefaf4] h-full md:h-screen md:flex justify-around ">
-      
+
       <div className=" h-[70%] md:w-[600px] w-[70%] mx-auto my-20 border-2 border-[#b5b5b5] rounded-xl md:my-28 place-content-center px-5 py-10 gap-8 bg-[#fefaf4] md:mx-10">
 
         <div className="">
           <div className="mb-5 space-y-5">
-            <img src={logoimage} className="w-[100px] mx-auto mb-5" alt="" />
+            <img src={logoimage} className="w-[100px] rounded-full mx-auto mb-5" alt="" />
             <h1 className="font-semibold text-xl flex items-center gap-2">
               <Link to="/auth/login">
                 <IoIosArrowBack />
@@ -89,7 +89,7 @@ const Otp = () => {
             }}
           />
           <div onClick={handleMatchOtp} className="mt-5">
-            <button className="w-full bg-[#344f47] text-xl font-semibold text-white rounded-md py-2" loading={isLoading} border >
+            <button className="w-full bg-[#000000] text-xl font-semibold text-white rounded-md py-2" loading={isLoading} border >
               Verify
             </button>
           </div>

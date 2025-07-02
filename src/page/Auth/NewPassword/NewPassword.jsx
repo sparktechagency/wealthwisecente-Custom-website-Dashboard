@@ -57,8 +57,7 @@ const NewPassword = () => {
 
         <div className="">
           <div className="mb-5">
-            <img src={logoimage} className="w-[100px] mx-auto mb-5" alt="" />
-
+            <img src={logoimage} className="w-[100px] rounded-full mx-auto mb-5" alt="" />
             <h1 className="font-semibold text-xl flex items-center gap-2">
               <Link to="/auth/login">
                 <IoIosArrowBack />
@@ -114,7 +113,7 @@ const NewPassword = () => {
 
             {/* CustomButton for submission */}
             <Form.Item>
-              <button className="w-full bg-[#344f47] text-xl font-semibold text-white rounded-md py-2" loading={isLoading} border >
+              <button className="w-full bg-[#000000] text-xl font-semibold text-white rounded-md py-2" loading={isLoading} border >
                 Update Password
               </button>
             </Form.Item>
